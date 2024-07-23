@@ -10,6 +10,10 @@
   padding: 0 30px;
 }
 
+.selected-event {
+  background-color: rgba(255, 166, 0, 0.546);
+}
+
 .event {
   font-size: 1.5em;
   line-height: 1.5em;
@@ -32,3 +36,4 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
