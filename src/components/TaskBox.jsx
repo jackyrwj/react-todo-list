@@ -1,5 +1,22 @@
-const TaskBox = () => {
-  return <div className='task-box'></div>;
+const TaskBox = ({events,setEvents,currentEvent}) => {
+
+
+  const handleRemove = () => {
+    setEvents((prev) => 
+      prev.filter((item) => item.title != currentEvent.title)
+    )
+  }
+  return (
+    <div className='task-box'>
+      <header className='task-box-header'>
+        <h1 className='task-box-title'>All Tasks</h1>
+        <button className='remove-button'
+        onClick={handleRemove}>
+          Remove this Evnet
+          </button>
+      </header>
+    </div>
+  );
 };
 
 export default TaskBox;

@@ -4,7 +4,7 @@ import AddButton from './AddButton';
 const EventBar = ({ events, setEvents, currentEvent, setCurrentEvent }) => {
   const  handleAdd = () =>{
     const title = prompt('Enter the title:');
-    if (title) setEvents = useState((prev) => [...prev, {title : title, tasks : {}}]);
+    if (title) setEvents((prev) => [...prev, {title : title, tasks : {}}]);
   }
   return (
     <div className='event-bar'>
