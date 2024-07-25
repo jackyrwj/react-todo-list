@@ -2,9 +2,10 @@ const TaskBox = ({events,setEvents,currentEvent}) => {
 
 
   const handleRemove = () => {
-    setEvents((prev) => 
-      prev.filter((item) => item.title != currentEvent.title)
-    )
+    if(confirm('You really whant to remove it?'))
+      setEvents((prev) => 
+        prev.filter((item) => item.title != currentEvent.title)
+      )
   }
   return (
     <div className='task-box'>

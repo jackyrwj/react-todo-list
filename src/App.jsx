@@ -11,6 +11,12 @@ function App() {
     { title: 'Reading', tasks: {}},
   ]);
   const [currentEvent, setCurrentEvent] = React.useState(events[0]);
+
+  React.useEffect(()=>{
+    if(!events.length){
+      setEvents([{title : 'Add a Event Now'}]);
+    }
+  },[events])
   return (
     <div className='App'>
       <EventBar 
