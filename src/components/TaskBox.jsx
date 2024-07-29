@@ -1,3 +1,5 @@
+import Column from "./Column";
+
 const TaskBox = ({events,setEvents,currentEvent,setCurrentEvent}) => {
 
 
@@ -20,9 +22,15 @@ const TaskBox = ({events,setEvents,currentEvent,setCurrentEvent}) => {
         <h1 className='task-box-title'>All Tasks</h1>
         <button className='remove-button'
         onClick={handleRemove}>
-          Remove this Evnet
+          Remove this Event
           </button>
       </header>
+      <div className="task-box-body">
+        <Column tag='To do'/>
+        <Column tag='In progress'/>
+        <Column tag='Completed'/>
+
+      </div>
     </div>
   );
 };
