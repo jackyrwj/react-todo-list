@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import AddButton from './AddButton';
+import AddEventButton from './AddEventButton';
 
 const EventBar = ({ events, setEvents, currentEvent, setCurrentEvent }) => {
   const  handleAdd = () =>{
@@ -10,7 +10,7 @@ const EventBar = ({ events, setEvents, currentEvent, setCurrentEvent }) => {
     <div className='event-bar'>
       <h1 className='event-bar-title'>.kanban</h1>
       <div className='event-container'>
-        <AddButton handleClick={handleAdd}/>
+        <AddEventButton handleClick={handleAdd}/>
         {events.map((item) => (
           <div 
             key={item.title} 
