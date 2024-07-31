@@ -7,8 +7,48 @@ import TaskBox from './components/TaskBox';
 
 function App() {
   const [events, setEvents] = React.useState([
-    { title: 'Battleship', tasks: {}},
-    { title: 'Reading', tasks: {}},
+    // { title: 'Battleship', tasks: {}},
+    // { title: 'Reading', tasks: {}},
+    {
+      title: 'Battleship',
+      tasks: [
+        {
+          name: 'Something',
+          detals: 'SomethingSomethingSomething',
+          state: 'To do',
+        },
+        {
+          name: 'Something',
+          detals: 'SomethingSomethingSomething',
+          state: 'In progress',
+        },
+        {
+          name: 'Something',
+          details: 'SomethingSomethingSomething',
+          state: 'Completed',
+        },
+      ],
+    },
+    {
+      title: 'Reading',
+      tasks: [
+        {
+          name: 'Something',
+          detals: 'SomethingSomethingSomething',
+          state: 'To do',
+        },
+        {
+          name: 'Something',
+          detals: 'SomethingSomethingSomething',
+          state: 'In progress',
+        },
+        {
+          name: 'Something',
+          detals: 'SomethingSomethingSomething',
+          state: 'Completed',
+        },
+      ],
+    },
   ]);
   const [currentEvent, setCurrentEvent] = React.useState(events[0]);
 
