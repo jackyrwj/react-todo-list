@@ -29,6 +29,19 @@
     transition: 0.5s;
   }
 
+  .column {
+    width: 300px;
+    /* height: 300px; */
+    max-height: 700px;
+    background-color: #f6f9fa;
+    border-radius: 15px;
+    padding: 17px 25px;
+    font-size: 1.4em;
+    font-weight: 400;
+    font-style: italic;
+  }
+
+  
 
 .add-task-button {
   width: 300px;
@@ -43,11 +56,19 @@
   outline: none;
   text-align: center;
   font-style: normal;
-  margin: 0 auto;
-  margin-top: 11px;
+  /* margin: 0 auto; */
+  margin: 13px auto;
+  /* margin-top: 11px; */
   font-size: 1.1em;
 }
 
 .add-task-button:hover {
   background-color: #dee4e4;
+}
+
+.task-container {
+  width: 100%;
+  max-height: 600px;
+  background-color: orange;
+  overflow: auto;
 }
