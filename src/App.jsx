@@ -14,17 +14,17 @@ function App() {
       tasks: [
         {
           name: 'Something',
-          details: 'SomethingSomethingSomething',
+          details: 'Something Something Something',
           state: 'To do',
         },
         {
           name: 'Something',
-          details: 'SomethingSomethingSomething',
+          details: 'Something Something Something',
           state: 'In progress',
         },
         {
           name: 'Something',
-          details: 'SomethingSomethingSomething',
+          details: 'Something Something Something',
           state: 'Completed',
         },
       ],
