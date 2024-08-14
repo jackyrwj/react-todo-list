@@ -30,7 +30,7 @@ const Column = ({tag,currentEvent,setEvents,events}) => {
             <div className='task-container'>
                 {events
                 .find((event) => event.title === currentEvent.title)
-                .tasks.map((item) => {
+                ?.tasks.map((item) => {
                     if(item.state === tag){
                         return(
                             <Task key={item.name} name={item.name} details={item.details}/>
