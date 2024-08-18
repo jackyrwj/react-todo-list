@@ -37,7 +37,7 @@ const Column = ({ tag, currentEvent, events, setEvents }) => {
             >
               {events
                 .find((event) => event.title === currentEvent.title)
-                [tag].map((item, index) => {
+                ?.[tag].map((item, index) => {
                   return (
                     <Draggable
                       key={item.id}
