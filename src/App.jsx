@@ -8,32 +8,32 @@ import uuid from 'react-uuid';
 
 function App() {
   const [events, setEvents] = React.useState([
-    // { title: 'Battleship', tasks: {}},
-    // { title: 'Reading', tasks: {}},
     {
       title: 'Battleship',
       ['To do']: [
         {
-          name: 'Something1',
+          name: 'Welcome Page',
           id: uuid(),
-          details: 'Something Something Something',
-          state: 'To do',
+          details: 'Create welcome page and a start button',
+        },
+        {
+          name: 'Design Result Page',
+          id: uuid(),
+          details: 'Design the Result page and send it to Lydia.',
         },
       ],
       ['In progress']: [
         {
-          name: 'Something2',
+          name: 'Board',
           id: uuid(),
-          details: 'SomethingSomethingSomething',
-          state: 'In progress',
+          details: 'Beautifying the Board UI',
         },
       ],
       ['Completed']: [
         {
-          name: 'Something3',
+          name: 'Discussion',
           id: uuid(),
-          details: 'Something Something Something',
-          state: 'Completed',
+          details: '8pm, Jul 31, Zomm Meeting with group partners',
         },
       ],
     },
@@ -65,18 +65,18 @@ function App() {
       ],
     },
   ]);
-  const [currentEvent, setCurrentEvent] = React.useState(events[0]);
 
+  const [currentEvent, setCurrentEvent] = React.useState(events[0]);
 
   return (
     <div className='App'>
-      <EventBar 
-        events={events} 
-        setEvents={setEvents} 
-        currentEvent = {currentEvent}
-        setCurrentEvent = {setCurrentEvent}
+      <EventBar
+        events={events}
+        setEvents={setEvents}
+        currentEvent={currentEvent}
+        setCurrentEvent={setCurrentEvent}
       />
-      <TaskBox 
+      <TaskBox
         events={events}
         setEvents={setEvents}
         currentEvent={currentEvent}

@@ -17,7 +17,7 @@ const Column = ({ tag, currentEvent, events, setEvents }) => {
         ...eventCopy,
         [tag]: [
           ...eventCopy[tag],
-          { name: name, id: uuid(), details: details, state: tag },
+          { name: name, id: uuid(), details: details },
         ],
       });
       return arrCopy;
