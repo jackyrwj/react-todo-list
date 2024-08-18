@@ -12,7 +12,7 @@
 
 ## Screenshot
 
-![ScreenGIF](https://imgbed.codingkelvin.fun/uPic/screen.gif)
+![ScreenGIF](https://raw.githubusercontent.com/jackyrwj/picb/master/tourist.gif)
 
 ## Dependencies
 
