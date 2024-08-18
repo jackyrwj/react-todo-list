@@ -1,12 +1,16 @@
+import React, { useCallback } from 'react';
 import Column from './Column';
 import { DragDropContext } from 'react-beautiful-dnd';
 
 const TaskBox = ({ events, setEvents, currentEvent, setCurrentEvent }) => {
-  const handleRemove = () => {
-    if (confirm('You really whant to remove it?')) {
+  const handleRemove = useCallback(() => {
+    if (confirm('You really want to remove it?')) {
+      // update events
       setEvents((prev) => {
         const result = prev.filter((item) => item.title != currentEvent.title);
+        // if event is empty
         if (!result.length) {
+          // init the event
           const initEvent = [
             {
               title: 'Add a new Event',
@@ -16,16 +20,16 @@ const TaskBox = ({ events, setEvents, currentEvent, setCurrentEvent }) => {
             },
           ];
           setEvents(initEvent);
-          setCurrentEvent(initEvent[0]);
         } else {
+          // set the first event as current
           setCurrentEvent(result[0]);
         }
         return result;
       });
     }
-  };
+  }, [events, setEvents, currentEvent, setCurrentEvent]);
 
-  const handleDragEnd = (result) => {
+  const handleDragEnd = useCallback((result) => {
     if (!result.destination) return;
     const { source, destination } = result;
     const curEvent = events.find((item) => item.title === currentEvent.title);
@@ -48,7 +52,7 @@ const TaskBox = ({ events, setEvents, currentEvent, setCurrentEvent }) => {
         }
       })
     );
-  };
+  }, [events, setEvents, currentEvent]);
 
   return (
     <div className='task-box'>
@@ -60,24 +64,17 @@ const TaskBox = ({ events, setEvents, currentEvent, setCurrentEvent }) => {
       </header>
       <DragDropContext onDragEnd={(result) => handleDragEnd(result)}>
         <div className='task-box-body'>
-          <Column
-            tag='To do'
-            events={events}
-            setEvents={setEvents}
-            currentEvent={currentEvent}
-          />
-          <Column
-            tag='In progress'
-            events={events}
-            setEvents={setEvents}
-            currentEvent={currentEvent}
-          />
-          <Column
-            tag='Completed'
-            events={events}
-            setEvents={setEvents}
-            currentEvent={currentEvent}
-          />
+          {
+            ['To do', 'In progress', 'Completed'].map(tag => (
+              <Column
+                key={tag}
+                tag={tag}
+                events={events}
+                setEvents={setEvents}
+                currentEvent={currentEvent}
+              />
+            ))
+          }
         </div>
       </DragDropContext>
     </div>

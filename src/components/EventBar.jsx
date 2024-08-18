@@ -1,7 +1,8 @@
+import React, {useCallback} from 'react';
 import AddEventButton from './AddEventButton';
 
 const EventBar = ({ events, setEvents, currentEvent, setCurrentEvent }) => {
-  const handleAdd = () => {
+  const handleAdd = useCallback(() => {
     const title = prompt('Enter the Title:');
     // Prevent Duplicated
     if (
@@ -10,17 +11,18 @@ const EventBar = ({ events, setEvents, currentEvent, setCurrentEvent }) => {
       alert('Event Already Existed');
       return;
     }
+    // Add new event
     if (title)
       setEvents((prev) => [
         ...prev,
         {
-          title: title,
+          title,
           ['To do']: [],
           ['In progress']: [],
           ['Completed']: [],
         },
       ]);
-  };
+  }, [events, setEvents]);
 
   return (
     <div className='event-bar'>
@@ -30,9 +32,8 @@ const EventBar = ({ events, setEvents, currentEvent, setCurrentEvent }) => {
         {events.map((item) => (
           <div
             key={item.title}
-            className={`event over-hide ${
-              currentEvent.title === item.title ? 'selected-event' : ''
-            }`}
+            className={`event over-hide ${currentEvent.title === item.title ? 'selected-event' : ''
+              }`}
             onClick={() => setCurrentEvent(item)}
           >
             {item.title}
