@@ -1,5 +1,6 @@
 import Column from './Column';
 import { DragDropContext } from 'react-beautiful-dnd';
+
 const TaskBox = ({ events, setEvents, currentEvent, setCurrentEvent }) => {
   const handleRemove = () => {
     if (confirm('You really whant to remove it?')) {
@@ -23,30 +24,25 @@ const TaskBox = ({ events, setEvents, currentEvent, setCurrentEvent }) => {
       });
     }
   };
+
   const handleDragEnd = (result) => {
-    console.log(result);
     if (!result.destination) return;
     const { source, destination } = result;
     const curEvent = events.find((item) => item.title === currentEvent.title);
-    const taskCopy = curEvent[source.droppableId][source.index];    // Remove from source
+    const taskCopy = curEvent[source.droppableId][source.index];
     setEvents((prev) =>
       prev.map((event) => {
         if (event.title === currentEvent.title) {
-          const taskList = event[source.droppableId];
-          taskList.splice(source.index, 1);
-          return { ...event, [source.droppableId]: taskList };
-        } else {
-          return event;
-        }
-      })
-    );
-    // Add to destination
-    setEvents((prev) =>
-      prev.map((event) => {
-        if (event.title === currentEvent.title) {
-          const taskList = event[destination.droppableId];
-          taskList.splice(destination.index, 0, taskCopy);
-          return { ...event, [destination.droppableId]: taskList };
+          let eventCopy = { ...event };
+          // Remove from source
+          const taskListSource = event[source.droppableId];
+          taskListSource.splice(source.index, 1);
+          eventCopy = { ...event, [source.droppableId]: taskListSource };
+          // Add to destination
+          const taskListDes = event[destination.droppableId];
+          taskListDes.splice(destination.index, 0, taskCopy);
+          eventCopy = { ...event, [destination.droppableId]: taskListDes };
+          return eventCopy;
         } else {
           return event;
         }
@@ -87,4 +83,5 @@ const TaskBox = ({ events, setEvents, currentEvent, setCurrentEvent }) => {
     </div>
   );
 };
+
 export default TaskBox;
