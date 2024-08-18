@@ -2,6 +2,7 @@ import AddTaskButton from './AddTaskButton';
 import Task from './Task';
 import { Droppable, Draggable } from 'react-beautiful-dnd';
 import uuid from 'react-uuid';
+
 const Column = ({ tag, currentEvent, events, setEvents }) => {
   const handleAdd = () => {
     const name = prompt('Enter task name:');
@@ -23,6 +24,22 @@ const Column = ({ tag, currentEvent, events, setEvents }) => {
       return arrCopy;
     });
   };
+
+  const handleRemove = (id) => {
+    setEvents((prev) =>
+      prev.map((event) => {
+        if (event.title === currentEvent.title) {
+          const taskList = event[tag];
+          const index = taskList.findIndex((item) => item.id === id);
+          taskList.splice(index, 1);
+          return { ...event, [tag]: [...taskList] };
+        } else {
+          return event;
+        }
+      })
+    );
+  };
+
   return (
     <div className='column'>
       {tag}
@@ -38,6 +55,7 @@ const Column = ({ tag, currentEvent, events, setEvents }) => {
               {events
                 .find((event) => event.title === currentEvent.title)
                 ?.[tag].map((item, index) => {
+                  console.log(events);
                   return (
                     <Draggable
                       key={item.id}
@@ -49,8 +67,10 @@ const Column = ({ tag, currentEvent, events, setEvents }) => {
                           <Task
                             name={item.name}
                             details={item.details}
+                            id={item.id}
                             provided={provided}
                             snapshot={snapshot}
+                            handleRemove={handleRemove}
                           />
                         );
                       }}
@@ -65,4 +85,5 @@ const Column = ({ tag, currentEvent, events, setEvents }) => {
     </div>
   );
 };
+
 export default Column;
