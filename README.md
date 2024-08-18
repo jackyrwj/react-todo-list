@@ -1,6 +1,6 @@
 # ✔️ Kanban Board - With React
 
-<p align="center"><img src="https://raw.githubusercontent.com/jackyrwj/picb/master/bird.svg" style="zoom:80%;" /></p>
+<p align="center"><img src="https://raw.githubusercontent.com/jackyrwj/picb/master/bird_small.svg" style="zoom:80%;" /></p>
 
 
 ## Features
