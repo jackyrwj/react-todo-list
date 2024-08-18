@@ -12,21 +12,25 @@ function App() {
     // { title: 'Reading', tasks: {}},
     {
       title: 'Battleship',
-      tasks: [
+      ['To do']: [
         {
-          name: 'Something',
+          name: 'Something1',
           id: uuid(),
           details: 'Something Something Something',
           state: 'To do',
         },
+      ],
+      ['In progress']: [
         {
-          name: 'Something',
+          name: 'Something2',
           id: uuid(),
-          details: 'Something Something Something',
+          details: 'SomethingSomethingSomething',
           state: 'In progress',
         },
+      ],
+      ['Completed']: [
         {
-          name: 'Something',
+          name: 'Something3',
           id: uuid(),
           details: 'Something Something Something',
           state: 'Completed',
@@ -35,19 +39,23 @@ function App() {
     },
     {
       title: 'Reading',
-      tasks: [
+      ['To do']: [
         {
           name: 'Something',
           id: uuid(),
-          details: 'SomethingSomethingSomething',
+          details: 'Something Something Something',
           state: 'To do',
         },
+      ],
+      ['In progress']: [
         {
           name: 'Something',
           id: uuid(),
           details: 'SomethingSomethingSomething',
           state: 'In progress',
         },
+      ],
+      ['Completed']: [
         {
           name: 'Something',
           id: uuid(),
